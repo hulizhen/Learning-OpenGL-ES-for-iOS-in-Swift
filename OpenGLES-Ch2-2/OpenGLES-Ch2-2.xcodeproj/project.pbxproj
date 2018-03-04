@@ -12,8 +12,8 @@
 		256D0F17204C132000DADC37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F15204C132000DADC37 /* Main.storyboard */; };
 		256D0F19204C132000DADC37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F18204C132000DADC37 /* Assets.xcassets */; };
 		256D0F1C204C132000DADC37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F1A204C132000DADC37 /* LaunchScreen.storyboard */; };
-		256D0F24204C13BD00DADC37 /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F23204C13BD00DADC37 /* AGLKView.swift */; };
-		256D0F26204C2BA100DADC37 /* AGLKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F25204C2BA100DADC37 /* AGLKViewController.swift */; };
+		256D0F29204C3DDA00DADC37 /* AGLKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F27204C3DDA00DADC37 /* AGLKViewController.swift */; };
+		256D0F2A204C3DDA00DADC37 /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F28204C3DDA00DADC37 /* AGLKView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		256D0F18204C132000DADC37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256D0F1B204C132000DADC37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		256D0F1D204C132000DADC37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		256D0F23204C13BD00DADC37 /* AGLKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKView.swift; sourceTree = "<group>"; };
-		256D0F25204C2BA100DADC37 /* AGLKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKViewController.swift; sourceTree = "<group>"; };
+		256D0F27204C3DDA00DADC37 /* AGLKViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AGLKViewController.swift; path = ../../AGLKit/AGLKViewController.swift; sourceTree = "<group>"; };
+		256D0F28204C3DDA00DADC37 /* AGLKView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AGLKView.swift; path = ../../AGLKit/AGLKView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 			children = (
 				256D0F11204C132000DADC37 /* AppDelegate.swift */,
 				256D0F13204C132000DADC37 /* ViewController.swift */,
-				256D0F25204C2BA100DADC37 /* AGLKViewController.swift */,
-				256D0F23204C13BD00DADC37 /* AGLKView.swift */,
+				256D0F28204C3DDA00DADC37 /* AGLKView.swift */,
+				256D0F27204C3DDA00DADC37 /* AGLKViewController.swift */,
 				256D0F15204C132000DADC37 /* Main.storyboard */,
 				256D0F18204C132000DADC37 /* Assets.xcassets */,
 				256D0F1A204C132000DADC37 /* LaunchScreen.storyboard */,
@@ -143,9 +143,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				256D0F14204C132000DADC37 /* ViewController.swift in Sources */,
-				256D0F26204C2BA100DADC37 /* AGLKViewController.swift in Sources */,
 				256D0F12204C132000DADC37 /* AppDelegate.swift in Sources */,
-				256D0F24204C13BD00DADC37 /* AGLKView.swift in Sources */,
+				256D0F29204C3DDA00DADC37 /* AGLKViewController.swift in Sources */,
+				256D0F2A204C3DDA00DADC37 /* AGLKView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
