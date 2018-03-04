@@ -147,7 +147,7 @@ class AGLKView: UIView {
         }
     }
     
-    func display() {        
+    func display() {
         glViewport(0, 0, self.drawableWidth, self.drawableHeight)
         draw(bounds)
         context.presentRenderbuffer(Int(GL_RENDERBUFFER))
