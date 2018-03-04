@@ -12,6 +12,8 @@
 		256D0F3F204C3F4A00DADC37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F3D204C3F4A00DADC37 /* Main.storyboard */; };
 		256D0F41204C3F4A00DADC37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F40204C3F4A00DADC37 /* Assets.xcassets */; };
 		256D0F44204C3F4A00DADC37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F42204C3F4A00DADC37 /* LaunchScreen.storyboard */; };
+		256D0F4C204C3F7E00DADC37 /* AGLKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F4B204C3F7E00DADC37 /* AGLKContext.swift */; };
+		256D0F4E204C435800DADC37 /* GLKVertexAttribArrayBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F4D204C435800DADC37 /* GLKVertexAttribArrayBuffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		256D0F40204C3F4A00DADC37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256D0F43204C3F4A00DADC37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		256D0F45204C3F4A00DADC37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		256D0F4B204C3F7E00DADC37 /* AGLKContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AGLKContext.swift; path = ../../AGLKit/AGLKContext.swift; sourceTree = "<group>"; };
+		256D0F4D204C435800DADC37 /* GLKVertexAttribArrayBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GLKVertexAttribArrayBuffer.swift; path = ../../AGLKit/GLKVertexAttribArrayBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				256D0F39204C3F4A00DADC37 /* AppDelegate.swift */,
 				256D0F3B204C3F4A00DADC37 /* ViewController.swift */,
+				256D0F4B204C3F7E00DADC37 /* AGLKContext.swift */,
+				256D0F4D204C435800DADC37 /* GLKVertexAttribArrayBuffer.swift */,
 				256D0F3D204C3F4A00DADC37 /* Main.storyboard */,
 				256D0F40204C3F4A00DADC37 /* Assets.xcassets */,
 				256D0F42204C3F4A00DADC37 /* LaunchScreen.storyboard */,
@@ -136,6 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256D0F4E204C435800DADC37 /* GLKVertexAttribArrayBuffer.swift in Sources */,
+				256D0F4C204C3F7E00DADC37 /* AGLKContext.swift in Sources */,
 				256D0F3C204C3F4A00DADC37 /* ViewController.swift in Sources */,
 				256D0F3A204C3F4A00DADC37 /* AppDelegate.swift in Sources */,
 			);

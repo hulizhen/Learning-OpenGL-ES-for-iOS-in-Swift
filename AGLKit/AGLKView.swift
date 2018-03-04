@@ -43,12 +43,12 @@ class AGLKView: UIView {
     // If the current context is different from the new one,
     // then delete OpenGL ES Frame Buffer resource in the old
     // context and recreate them in the new context.
+    private var backingContext: EAGLContext!
     var context: EAGLContext! {
         set {
-            let currentContext = EAGLContext.current()
-            guard currentContext != newValue else { return }
+            guard backingContext != newValue else { return }
             
-            if currentContext != nil {
+            if backingContext != nil {
                 // Delete any buffers previously created in old context
                 if defaultFrameBuffer != 0 {
                     glDeleteFramebuffers(1, &defaultFrameBuffer)
@@ -60,10 +60,11 @@ class AGLKView: UIView {
                 }
             }
             
-            // Configure the new context with required buffers
-            EAGLContext.setCurrent(newValue)
+            backingContext = newValue
+            EAGLContext.setCurrent(backingContext)
             
-            if newValue != nil {
+            // Configure the new context with required buffers
+            if backingContext != nil {
                 glGenFramebuffers(1, &defaultFrameBuffer)
                 glBindFramebuffer(GLenum(GL_FRAMEBUFFER), defaultFrameBuffer)
                 
@@ -80,7 +81,7 @@ class AGLKView: UIView {
             }
         }
         get {
-            return EAGLContext.current()
+            return backingContext
         }
     }
 
