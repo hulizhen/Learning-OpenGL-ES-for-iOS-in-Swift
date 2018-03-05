@@ -1,5 +1,5 @@
 //
-//  GLKVertexAttribArrayBuffer.swift
+//  AGLKVertexAttribArrayBuffer.swift
 //  OpenGLES-Ch2-3
 //
 //  Created by Lizhen Hu on 04/03/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GLKVertexAttribArrayBuffer: NSObject {
+class AGLKVertexAttribArrayBuffer: NSObject {
     var stride: GLsizeiptr = 0
     var bufferSizeBytes: GLsizeiptr = 0
     var name: GLuint = 0
@@ -30,7 +30,7 @@ class GLKVertexAttribArrayBuffer: NSObject {
         
         glGenBuffers(1, &name)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), bufferSizeBytes, data, GLenum(GL_ARRAY_BUFFER))
+        glBufferData(GLenum(GL_ARRAY_BUFFER), bufferSizeBytes, data, GLenum(GL_STATIC_DRAW))
         
         if name == 0 {
             assert(false, "Failed to generate name")
@@ -46,8 +46,6 @@ class GLKVertexAttribArrayBuffer: NSObject {
         assert(count > 0 && count < 4)
         assert(name != 0, "Invalid name")
         
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
-        
         if shouldEnable {
             glEnableVertexAttribArray(index)
         }
@@ -58,7 +56,7 @@ class GLKVertexAttribArrayBuffer: NSObject {
             GLenum(GL_FLOAT),                                // Data is floating point
             GLboolean(GL_FALSE),                             // No fixed point scaling
             GLsizei(stride),                                 // No gaps in data
-            (nil as UnsafeRawPointer!).advanced(by: offset)  // Offset from start of each vertex to first coord for attribute
+            UnsafeRawPointer(bitPattern: offset)             // Offset from start of each vertex to first coord for attribute
         )
     }
     

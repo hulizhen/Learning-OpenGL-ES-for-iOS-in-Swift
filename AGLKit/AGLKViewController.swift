@@ -8,8 +8,36 @@
 
 import UIKit
 
+// This constant defines the default number of frame per second
+// rate to redraw the receiver's view when the receiver is not
+// paused.
+let kAGLKDefaultFramesPerSecond = 30
+
 class AGLKViewController: UIViewController {
     var displayLink: CADisplayLink!
+    
+    // This property contains the desired frames per second rate for
+    // drawing.
+    var preferredFramesPerSecond: Int {
+        set {
+            displayLink.preferredFramesPerSecond = newValue
+        }
+        get {
+            return displayLink.preferredFramesPerSecond
+        }
+    }
+    
+    // This property determines whether to pause or resume drawing
+    // at the rate defined by the framesPerSecond property.
+    // Initial value is false.
+    var isPaused: Bool {
+        set {
+            displayLink.isPaused = newValue
+        }
+        get {
+            return displayLink.isPaused
+        }
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -24,6 +52,7 @@ class AGLKViewController: UIViewController {
     func commonInit() {
         displayLink = CADisplayLink(target: self, selector: #selector(drawRect(_:)))
         displayLink.add(to: RunLoop.current, forMode: .defaultRunLoopMode)
+        preferredFramesPerSecond = kAGLKDefaultFramesPerSecond
     }
     
     override func viewDidLoad() {

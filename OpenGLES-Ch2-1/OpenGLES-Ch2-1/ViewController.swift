@@ -26,6 +26,7 @@ class ViewController: GLKViewController {
     ]
     
     deinit {
+        // Make the view's context current
         let view = self.view as! GLKView
         EAGLContext.setCurrent(view.context)
         

@@ -42,10 +42,9 @@ class ViewController: AGLKViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Get GLKView instance
         if let view = self.view as? AGLKView {
             // Create an OpenGL ES 2.0 context and provide it to the view
-            view.context = EAGLContext(api: .openGLES3)!  // "Embedded Apple GL"
+            view.context = EAGLContext(api: .openGLES2)!  // "Embedded Apple GL"
             
             // Make the new context current
             EAGLContext.setCurrent(view.context)
