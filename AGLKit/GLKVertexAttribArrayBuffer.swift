@@ -9,7 +9,7 @@
 import UIKit
 
 class AGLKVertexAttribArrayBuffer: NSObject {
-    var stride: GLsizeiptr = 0
+    var stride: GLsizei = 0
     var bufferSizeBytes: GLsizeiptr = 0
     var name: GLuint = 0
     
@@ -21,16 +21,16 @@ class AGLKVertexAttribArrayBuffer: NSObject {
     
     // Creates a vertex attribute array buffer in the current OpenGL ES context
     // for the thread upon which this method is called.
-    init(attribStride stride:GLsizeiptr, numberOfVertices count:GLsizei, data:UnsafeRawPointer, usage:GLenum) {
+    init(attribStride stride:GLsizei, numberOfVertices count:GLsizei, data:UnsafeRawPointer, usage:GLenum) {
         assert(stride > 0)
         assert(count > 0)
         
         self.stride = stride
-        bufferSizeBytes = stride * GLsizeiptr(count)
+        bufferSizeBytes = GLsizeiptr(stride * count)
         
         glGenBuffers(1, &name)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
-        glBufferData(GLenum(GL_ARRAY_BUFFER), bufferSizeBytes, data, GLenum(GL_STATIC_DRAW))
+        glBufferData(GLenum(GL_ARRAY_BUFFER), bufferSizeBytes, data, usage)
         
         if name == 0 {
             assert(false, "Failed to generate name")
@@ -50,12 +50,14 @@ class AGLKVertexAttribArrayBuffer: NSObject {
             glEnableVertexAttribArray(index)
         }
         
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
+        
         glVertexAttribPointer(
             index,                                           // This index is used to provide the vertex position to a shader
             count,                                           // Three components per vertex
             GLenum(GL_FLOAT),                                // Data is floating point
             GLboolean(GL_FALSE),                             // No fixed point scaling
-            GLsizei(stride),                                 // No gaps in data
+            stride,
             UnsafeRawPointer(bitPattern: offset)             // Offset from start of each vertex to first coord for attribute
         )
     }
@@ -64,7 +66,7 @@ class AGLKVertexAttribArrayBuffer: NSObject {
     // OpenGL ES to use count vertices from the buffer starting from
     // the vertex at index first. Vertex indices start at 0.
     func drawArray(withMode mode:GLenum, startVertexIndex index:GLint, numberOfVertices count:GLsizei) {
-        assert(bufferSizeBytes >= GLsizeiptr(index + count) * stride, "Attempt to draw more vertex data than available.")
+        assert(bufferSizeBytes >= GLsizei(index + count) * stride, "Attempt to draw more vertex data than available.")
         glDrawArrays(mode, index, count);
     }
 }

@@ -58,7 +58,7 @@ class ViewController: GLKViewController {
         
         // Create vertex buffer containing vertices to draw
         vertexBuffer = AGLKVertexAttribArrayBuffer(
-            attribStride: MemoryLayout<SceneVertex>.size,
+            attribStride: MemoryLayout<SceneVertex>.stride,
             numberOfVertices: GLsizei(vertices.count),
             data: vertices,
             usage: GLenum(GL_STATIC_DRAW)
