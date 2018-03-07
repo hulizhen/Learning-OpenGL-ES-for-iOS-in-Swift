@@ -14,7 +14,6 @@
 		256D0F72204E1D8E00DADC37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256D0F70204E1D8E00DADC37 /* LaunchScreen.storyboard */; };
 		256D0F7B204E1E8F00DADC37 /* GLKVertexAttribArrayBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F79204E1E8F00DADC37 /* GLKVertexAttribArrayBuffer.swift */; };
 		256D0F7C204E1E8F00DADC37 /* AGLKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F7A204E1E8F00DADC37 /* AGLKContext.swift */; };
-		256D0F80204E3E6300DADC37 /* SceneVertex.c in Sources */ = {isa = PBXBuildFile; fileRef = 256D0F7F204E3E6300DADC37 /* SceneVertex.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +26,6 @@
 		256D0F73204E1D8E00DADC37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		256D0F79204E1E8F00DADC37 /* GLKVertexAttribArrayBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLKVertexAttribArrayBuffer.swift; path = ../../AGLKit/GLKVertexAttribArrayBuffer.swift; sourceTree = "<group>"; };
 		256D0F7A204E1E8F00DADC37 /* AGLKContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AGLKContext.swift; path = ../../AGLKit/AGLKContext.swift; sourceTree = "<group>"; };
-		256D0F7D204E3CCA00DADC37 /* OpenGLES-Ch3-1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "OpenGLES-Ch3-1-Bridging-Header.h"; path = "OpenGLES-Ch3-1/OpenGLES-Ch3-1-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		256D0F7E204E3E6300DADC37 /* SceneVertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneVertex.h; sourceTree = "<group>"; };
-		256D0F7F204E3E6300DADC37 /* SceneVertex.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SceneVertex.c; sourceTree = "<group>"; };
 		256D0F82204E406700DADC37 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -70,9 +66,6 @@
 				256D0F79204E1E8F00DADC37 /* GLKVertexAttribArrayBuffer.swift */,
 				256D0F6B204E1D8E00DADC37 /* Main.storyboard */,
 				256D0F6E204E1D8E00DADC37 /* Assets.xcassets */,
-				256D0F7D204E3CCA00DADC37 /* OpenGLES-Ch3-1-Bridging-Header.h */,
-				256D0F7E204E3E6300DADC37 /* SceneVertex.h */,
-				256D0F7F204E3E6300DADC37 /* SceneVertex.c */,
 				256D0F70204E1D8E00DADC37 /* LaunchScreen.storyboard */,
 				256D0F73204E1D8E00DADC37 /* Info.plist */,
 			);
@@ -162,7 +155,6 @@
 				256D0F7C204E1E8F00DADC37 /* AGLKContext.swift in Sources */,
 				256D0F6A204E1D8E00DADC37 /* ViewController.swift in Sources */,
 				256D0F7B204E1E8F00DADC37 /* GLKVertexAttribArrayBuffer.swift in Sources */,
-				256D0F80204E3E6300DADC37 /* SceneVertex.c in Sources */,
 				256D0F68204E1D8E00DADC37 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +299,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hulizhen.tutorial.OpenGLES-Ch3-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenGLES-Ch3-1/OpenGLES-Ch3-1-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -324,7 +316,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hulizhen.tutorial.OpenGLES-Ch3-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OpenGLES-Ch3-1/OpenGLES-Ch3-1-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

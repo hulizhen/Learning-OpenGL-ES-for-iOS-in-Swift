@@ -12,6 +12,9 @@
 		25425BB3204EE61300B9C95F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25425BB1204EE61300B9C95F /* Main.storyboard */; };
 		25425BB5204EE61300B9C95F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25425BB4204EE61300B9C95F /* Assets.xcassets */; };
 		25425BB8204EE61300B9C95F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25425BB6204EE61300B9C95F /* LaunchScreen.storyboard */; };
+		25425BC1204EE6D500B9C95F /* GLKVertexAttribArrayBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25425BBF204EE6D500B9C95F /* GLKVertexAttribArrayBuffer.swift */; };
+		25425BC2204EE6D500B9C95F /* AGLKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25425BC0204EE6D500B9C95F /* AGLKContext.swift */; };
+		25425BC4204EE76C00B9C95F /* AGLKTextureLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25425BC3204EE76C00B9C95F /* AGLKTextureLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		25425BB4204EE61300B9C95F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25425BB7204EE61300B9C95F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25425BB9204EE61300B9C95F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25425BBF204EE6D500B9C95F /* GLKVertexAttribArrayBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLKVertexAttribArrayBuffer.swift; path = ../../AGLKit/GLKVertexAttribArrayBuffer.swift; sourceTree = "<group>"; };
+		25425BC0204EE6D500B9C95F /* AGLKContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AGLKContext.swift; path = ../../AGLKit/AGLKContext.swift; sourceTree = "<group>"; };
+		25425BC3204EE76C00B9C95F /* AGLKTextureLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKTextureLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 			children = (
 				25425BAD204EE61300B9C95F /* AppDelegate.swift */,
 				25425BAF204EE61300B9C95F /* ViewController.swift */,
+				25425BC0204EE6D500B9C95F /* AGLKContext.swift */,
+				25425BBF204EE6D500B9C95F /* GLKVertexAttribArrayBuffer.swift */,
+				25425BC3204EE76C00B9C95F /* AGLKTextureLoader.swift */,
 				25425BB1204EE61300B9C95F /* Main.storyboard */,
 				25425BB4204EE61300B9C95F /* Assets.xcassets */,
 				25425BB6204EE61300B9C95F /* LaunchScreen.storyboard */,
@@ -136,8 +145,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25425BC2204EE6D500B9C95F /* AGLKContext.swift in Sources */,
 				25425BB0204EE61300B9C95F /* ViewController.swift in Sources */,
+				25425BC1204EE6D500B9C95F /* GLKVertexAttribArrayBuffer.swift in Sources */,
 				25425BAE204EE61300B9C95F /* AppDelegate.swift in Sources */,
+				25425BC4204EE76C00B9C95F /* AGLKTextureLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
