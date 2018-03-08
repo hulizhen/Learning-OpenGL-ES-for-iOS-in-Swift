@@ -30,6 +30,16 @@ class AGLKContext: EAGLContext {
         assertCurrentContext()
         glClear(mask)
     }
+    
+    func enable(capability: GLenum) {
+        assertCurrentContext()
+        glEnable(capability)
+    }
+    
+    func disable(capability: GLenum) {
+        assertCurrentContext()
+        glDisable(capability)
+    }
 }
 
 extension AGLKContext {

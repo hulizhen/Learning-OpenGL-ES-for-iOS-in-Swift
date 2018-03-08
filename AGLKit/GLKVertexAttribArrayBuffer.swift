@@ -36,7 +36,22 @@ class AGLKVertexAttribArrayBuffer: NSObject {
             assert(false, "Failed to generate name")
         }
     }
-    
+
+    func reinit(attribStride stride:GLsizei, numberOfVertices count:GLsizei, data:UnsafeRawPointer) {
+        assert(stride > 0)
+        assert(count > 0)
+        
+        self.stride = stride
+        bufferSizeBytes = GLsizeiptr(stride * count)
+        
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
+        glBufferData(GLenum(GL_ARRAY_BUFFER), bufferSizeBytes, data, GLenum(GL_DYNAMIC_DRAW))
+        
+        if name == 0 {
+            assert(false, "Failed to generate name")
+        }
+    }
+
     // A vertex attribute array buffer must be prepared when your
     // application wants to use the buffer to render any geometry.
     // When your application prepares an buffer, some OpenGL ES state
@@ -46,11 +61,11 @@ class AGLKVertexAttribArrayBuffer: NSObject {
         assert(count > 0 && count < 4)
         assert(name != 0, "Invalid name")
         
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
+
         if shouldEnable {
             glEnableVertexAttribArray(index)
         }
-        
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), name)
         
         glVertexAttribPointer(
             index,                                           // This index is used to provide the vertex position to a shader
@@ -60,6 +75,9 @@ class AGLKVertexAttribArrayBuffer: NSObject {
             stride,
             UnsafeRawPointer(bitPattern: offset)             // Offset from start of each vertex to first coord for attribute
         )
+        
+        let error = glGetError()
+        assert(error == GL_NO_ERROR, "GL Error: \(error)")
     }
     
     // Submits the drawing command identified by mode and instructs
