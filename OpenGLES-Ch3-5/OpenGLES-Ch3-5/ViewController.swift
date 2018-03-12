@@ -24,8 +24,6 @@ struct SceneVertex {
 class ViewController: GLKViewController {
     var baseEffect = GLKBaseEffect()  // Create a base effect that provides standard OpenGL ES 2.0 Shading Language programs
     var vertexBuffer: AGLKVertexAttribArrayBuffer!
-    var textureInfo0: GLKTextureInfo!
-    var textureInfo1: GLKTextureInfo!
     
     // Define vertex data for a triangle to use in example
     var vertices:[SceneVertex] = [
@@ -62,6 +60,13 @@ class ViewController: GLKViewController {
         // Make the new context current
         AGLKContext.setCurrent(view.context)
         
+        // Determine how many textures can be combined in a single pass.
+        // Use `GL_MAX_TEXTURE_IMAGE_UNITS` instead of `GL_MAX_TEXTURE_UNITS`,
+        // according to https://www.khronos.org/opengl/wiki/Common_Mistakes.
+        var units: GLint = 0;
+        glGetIntegerv(GLenum(GL_MAX_TEXTURE_IMAGE_UNITS), &units)
+        print("\(units) texture uints can be combine in a single pass")
+
         // Set constants to be used for all subsequent rendering
         self.baseEffect.useConstantColor = GLboolean(GL_TRUE)
         self.baseEffect.constantColor = GLKVector4Make(1, 1, 1, 1)
@@ -77,12 +82,18 @@ class ViewController: GLKViewController {
             usage: GLenum(GL_STATIC_DRAW)
         )
         
-        // Setup texture0
+        // Setup textures
         let imageRef0 = UIImage(named:"leaves")!.cgImage!
-        let imageRef1 = UIImage(named:"beetle")!.cgImage!
-        textureInfo0 = try! GLKTextureLoader.texture(with: imageRef0, options: [GLKTextureLoaderOriginBottomLeft: true as NSNumber])
-        textureInfo1 = try! GLKTextureLoader.texture(with: imageRef1, options: [GLKTextureLoaderOriginBottomLeft: true as NSNumber])
+        let textureInfo0 = try! GLKTextureLoader.texture(with: imageRef0, options: [GLKTextureLoaderOriginBottomLeft: true as NSNumber])
+        baseEffect.texture2d0.name = textureInfo0.name
+        baseEffect.texture2d0.target = GLKTextureTarget(rawValue: textureInfo0.target)!
         
+        let imageRef1 = UIImage(named:"beetle")!.cgImage!
+        let textureInfo1 = try! GLKTextureLoader.texture(with: imageRef1, options: [GLKTextureLoaderOriginBottomLeft: true as NSNumber])
+        baseEffect.texture2d1.name = textureInfo1.name
+        baseEffect.texture2d1.target = GLKTextureTarget(rawValue: textureInfo1.target)!
+        baseEffect.texture2d1.envMode = GLKTextureEnvMode.decal
+
         // Enable fragment blending with Frame Buffer contents
         glEnable(GLenum(GL_BLEND))
         glBlendFunc(GLenum(GL_SRC_ALPHA), GLenum(GL_ONE_MINUS_SRC_ALPHA))
@@ -108,23 +119,14 @@ class ViewController: GLKViewController {
             attribOffset: GLsizeiptr(MemoryLayout<GLfloat>.size * 4),  // FIXME: The offset of `textureCoords` in struct `SceneVertex`.
             shouldEnable: true
         )
-        
-        baseEffect.texture2d0.name = textureInfo0.name
-        baseEffect.texture2d0.target = GLKTextureTarget(rawValue: textureInfo0.target)!
-        baseEffect.prepareToDraw()
-        
-        vertexBuffer.drawArray(
-            withMode: GLenum(GL_TRIANGLES),
-            startVertexIndex: 0,
-            numberOfVertices: GLsizei(vertices.count)
+        vertexBuffer.prepareToDraw(
+            withAttrib: GLuint(GLKVertexAttrib.texCoord1.rawValue),
+            numberOfCoordinates: 2,
+            attribOffset: GLsizeiptr(MemoryLayout<GLfloat>.size * 4),  // FIXME: The offset of `textureCoords` in struct `SceneVertex`.
+            shouldEnable: true
         )
-        
-        // Draw triangles using the vertices in the
-        // currently bound vertex buffer
-        baseEffect.texture2d0.name = textureInfo1.name
-        baseEffect.texture2d0.target = GLKTextureTarget(rawValue: textureInfo1.target)!
         baseEffect.prepareToDraw()
-        
+
         // Draw triangles using the first three vertices in the
         // currently bound vertex buffer
         vertexBuffer.drawArray(
