@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		258F3FD320580CF70028F8E8 /* GLKVertexAttribArrayBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F3FD120580CF70028F8E8 /* GLKVertexAttribArrayBuffer.swift */; };
+		258F3FD420580CF70028F8E8 /* AGLKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F3FD220580CF70028F8E8 /* AGLKContext.swift */; };
+		258F3FD82058B8DA0028F8E8 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 258F3FD62058B8DA0028F8E8 /* Shader.fsh */; };
+		258F3FD92058B8DA0028F8E8 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 258F3FD72058B8DA0028F8E8 /* Shader.vsh */; };
 		259C732720575A4500532BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C732620575A4500532BAC /* AppDelegate.swift */; };
 		259C732920575A4500532BAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259C732820575A4500532BAC /* ViewController.swift */; };
 		259C732C20575A4500532BAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259C732A20575A4500532BAC /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		258F3FD120580CF70028F8E8 /* GLKVertexAttribArrayBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GLKVertexAttribArrayBuffer.swift; path = ../../AGLKit/GLKVertexAttribArrayBuffer.swift; sourceTree = "<group>"; };
+		258F3FD220580CF70028F8E8 /* AGLKContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AGLKContext.swift; path = ../../AGLKit/AGLKContext.swift; sourceTree = "<group>"; };
+		258F3FD62058B8DA0028F8E8 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		258F3FD72058B8DA0028F8E8 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		259C732320575A4500532BAC /* OpenGLES-Ch3-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenGLES-Ch3-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		259C732620575A4500532BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		259C732820575A4500532BAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		258F3FD52058B8DA0028F8E8 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				258F3FD62058B8DA0028F8E8 /* Shader.fsh */,
+				258F3FD72058B8DA0028F8E8 /* Shader.vsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		259C731A20575A4500532BAC = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +73,11 @@
 			children = (
 				259C732620575A4500532BAC /* AppDelegate.swift */,
 				259C732820575A4500532BAC /* ViewController.swift */,
+				258F3FD220580CF70028F8E8 /* AGLKContext.swift */,
+				258F3FD120580CF70028F8E8 /* GLKVertexAttribArrayBuffer.swift */,
 				259C732A20575A4500532BAC /* Main.storyboard */,
 				259C732D20575A4500532BAC /* Assets.xcassets */,
+				258F3FD52058B8DA0028F8E8 /* Shaders */,
 				259C732F20575A4500532BAC /* LaunchScreen.storyboard */,
 				259C733220575A4500532BAC /* Info.plist */,
 			);
@@ -123,9 +143,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258F3FD82058B8DA0028F8E8 /* Shader.fsh in Resources */,
 				259C733120575A4500532BAC /* LaunchScreen.storyboard in Resources */,
 				259C732E20575A4500532BAC /* Assets.xcassets in Resources */,
 				259C732C20575A4500532BAC /* Main.storyboard in Resources */,
+				258F3FD92058B8DA0028F8E8 /* Shader.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +158,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258F3FD420580CF70028F8E8 /* AGLKContext.swift in Sources */,
 				259C732920575A4500532BAC /* ViewController.swift in Sources */,
+				258F3FD320580CF70028F8E8 /* GLKVertexAttribArrayBuffer.swift in Sources */,
 				259C732720575A4500532BAC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

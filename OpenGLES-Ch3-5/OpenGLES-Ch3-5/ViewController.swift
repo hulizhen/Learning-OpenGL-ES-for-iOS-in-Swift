@@ -93,10 +93,6 @@ class ViewController: GLKViewController {
         baseEffect.texture2d1.name = textureInfo1.name
         baseEffect.texture2d1.target = GLKTextureTarget(rawValue: textureInfo1.target)!
         baseEffect.texture2d1.envMode = GLKTextureEnvMode.decal
-
-        // Enable fragment blending with Frame Buffer contents
-        glEnable(GLenum(GL_BLEND))
-        glBlendFunc(GLenum(GL_SRC_ALPHA), GLenum(GL_ONE_MINUS_SRC_ALPHA))
     }
     
     // GLKView delegate method: Called by the view controller's view
